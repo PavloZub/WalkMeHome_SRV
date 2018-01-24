@@ -51,14 +51,17 @@ def send_track(request):
 def get_last_location(request):
     if (request.method == 'GET') and ('email' in request.GET):
         locations = lc.objects.filter(email=request.GET['email'])
-        sortlocations = locations.order_by("-loc_date")
-        last_record = sortlocations[0]
-        loc_date_str = last_record.loc_date.strftime("%d.%m.%Y %H:%M:%S")
-        last_location = dict(email=last_record.email, loc_date=loc_date_str,
-                             LAT=last_record.LAT,
-                             LON=last_record.LON)
+        if locations.count()>0:
+            sortlocations = locations.order_by("-loc_date")
+            last_record = sortlocations[0]
+            loc_date_str = last_record.loc_date.strftime("%d.%m.%Y %H:%M:%S")
+            last_location = dict(email=last_record.email, loc_date=loc_date_str,
+                                 LAT=last_record.LAT,
+                                 LON=last_record.LON)
 
-        res = json.dumps(last_location)
+            res = json.dumps(last_location)
+        else:
+            res = 'Нет данных'
     else:
         res = 'Ошибка'
     return HttpResponse(res)
