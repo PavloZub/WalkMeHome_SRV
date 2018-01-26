@@ -7,6 +7,11 @@ from django.views.decorators.csrf import csrf_exempt
 import json
 import datetime as dt
 
+
+def index(request):
+    res = "This is a site of 'WalkMeHome' Project. The site is under construction!"
+    return HttpResponse(res)
+
 @csrf_exempt
 def send_loc(request):
     try:
