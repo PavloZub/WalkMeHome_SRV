@@ -25,7 +25,7 @@ SECRET_KEY = '5)xu6uaupe6wl+u_q+7em!9is0rx(ekz2v)#=f2-_vt4jt+#$1'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ["127.0.0.1", "walkmehome.ml"]
+ALLOWED_HOSTS = ["127.0.0.1", "localhost", "walkmehome.ml"]
 
 
 # Application definition

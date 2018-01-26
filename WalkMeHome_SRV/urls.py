@@ -15,8 +15,10 @@ Including another URLconf
 """
 from django.urls import include, path
 from django.contrib import admin
+from wmh_server import views
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('srv/', include('wmh_server.urls')),
+    path('', views.index, name='Main page'),
 ]
