@@ -9,7 +9,7 @@ import datetime as dt
 from django.conf import settings
 
 def index(request):
-    res = "{}This is a site of 'WalkMeHome' Project. The site is under construction!".format(settings.BASE_DIR)
+    res = "Base Path:{}. This is a site of 'WalkMeHome' Project. The site is under construction!".format(settings.BASE_DIR)
     return HttpResponse(res)
 
 @csrf_exempt
