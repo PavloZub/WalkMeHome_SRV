@@ -6,10 +6,10 @@ from wmh_server.models import LocationData as lc
 from django.views.decorators.csrf import csrf_exempt
 import json
 import datetime as dt
-
+from django.conf import settings
 
 def index(request):
-    res = "This is a site of 'WalkMeHome' Project. The site is under construction!"
+    res = "{}This is a site of 'WalkMeHome' Project. The site is under construction!".format(settings.BASE_DIR)
     return HttpResponse(res)
 
 @csrf_exempt
